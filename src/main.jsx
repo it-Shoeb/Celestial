@@ -10,7 +10,7 @@ import ViewPage from "./pages/viewPage/ViewPage.jsx";
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <App />,
+    element: <HomePage />,
   },
   {
     path: "/planets",
