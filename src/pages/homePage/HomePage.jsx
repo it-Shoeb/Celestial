@@ -15,7 +15,7 @@ export default function HomePage() {
   useEffect(() => {
     const fetchPlanets = async () => {
       try {
-        const res = await axios.get("http://localhost:5500/planets");
+        const res = await axios.get("https://celestial-b-end.onrender.com/planets");
         setPlanets(res);
         console.log(res);
       } catch (error) {
