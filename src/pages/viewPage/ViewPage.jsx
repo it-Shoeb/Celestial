@@ -12,7 +12,7 @@ export default function ViewPage() {
   useEffect(() => {
     const fetchPlanets = async () => {
       try {
-        const res = await axios.get(`http://localhost:5500/planets/${id}`);
+        const res = await axios.get(`https://celestial-b-end.onrender.com/planets/${id}`);
         setPlanet(res.data);
         console.log(res.data);
       } catch (error) {
