@@ -55,7 +55,7 @@ export default function HomePage() {
             </ul> */}
 
             <div className="nav-cta">
-              <button className="signup"><Link>Get Source Code</Link></button>
+              <button className="signup"><Link to={"https://github.com/it-Shoeb/Celestial/blob/master/src/pages/viewPage/ViewPage.jsx"} target="_blank">Get Source Code</Link></button>
               {/* <button className="login"></button> */}
             </div>
           </nav>
