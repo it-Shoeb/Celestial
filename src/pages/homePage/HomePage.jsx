@@ -15,7 +15,11 @@ export default function HomePage() {
   useEffect(() => {
     const fetchPlanets = async () => {
       try {
-        const res = await axios.get("https://celestial-b-end.onrender.com/planets");
+        const res = await axios.get(
+          "https://celestial-b-end.onrender.com/planets"
+          // "https://celestial-b-end.onrender.com"
+        );
+        return console.log("res:", res);
         setPlanets(res);
         console.log(res);
       } catch (error) {
@@ -35,7 +39,7 @@ export default function HomePage() {
           <nav>
             <div className="logo">
               <picture>
-              <img src={logo} alt="" />
+                <img src={logo} alt="" />
               </picture>
             </div>
 
@@ -55,7 +59,16 @@ export default function HomePage() {
             </ul> */}
 
             <div className="nav-cta">
-              <button className="signup"><Link to={"https://github.com/it-Shoeb/Celestial/blob/master/src/pages/viewPage/ViewPage.jsx"} target="_blank">Get Source Code</Link></button>
+              <button className="signup">
+                <Link
+                  to={
+                    "https://github.com/it-Shoeb/Celestial/blob/master/src/pages/viewPage/ViewPage.jsx"
+                  }
+                  target="_blank"
+                >
+                  Get Source Code
+                </Link>
+              </button>
               {/* <button className="login"></button> */}
             </div>
           </nav>
