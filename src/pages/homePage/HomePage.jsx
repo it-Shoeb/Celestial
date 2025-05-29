@@ -10,27 +10,25 @@ import logo from "../../assets/logo.gif";
 
 export default function HomePage() {
   const [loading, setLoading] = useState(true);
-  const [planets, setPlanets] = useState(null);
+  const [planets, setPlanets] = useState([]);
 
   useEffect(() => {
-    const fetchPlanets = async () => {
-      try {
-        const res = await axios.get(
-          "https://celestial-b-end.onrender.com/planets"
-          // "https://celestial-b-end.onrender.com"
-        );
-        return console.log("res:", res);
-        setPlanets(res);
-        console.log(res);
-      } catch (error) {
-        console.error("Error fetching planets:", error);
-      } finally {
-        setLoading(false);
-      }
-    };
-
     fetchPlanets();
   }, []);
+
+  const fetchPlanets = async () => {
+    try {
+      const res = await axios.get(
+        "https://celestial-b-end.onrender.com/planets"
+        // "https://celestial-b-end.onrender.com"
+      );
+      setPlanets(res.data.data);
+    } catch (error) {
+      console.error("Error fetching planets:", error);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return (
     <>
@@ -72,6 +70,7 @@ export default function HomePage() {
               {/* <button className="login"></button> */}
             </div>
           </nav>
+
           <div className="heading">
             <div className="inner-heading">
               <h1>Celestial Adventures</h1>
@@ -87,19 +86,21 @@ export default function HomePage() {
               </div>
             </div>
           </div>
+
           {loading ? <p>Loading...</p> : null}
-          {planets !== null &&
-            planets.data.data.map((planet, index) => (
-              <div className={"card card" + (index + 1)} key={planet._id}>
-                <Link to={`/planets/${planet._id}`}>
-                  <img src={planet.Image} alt="" />
-                  <div className="card-titleContainer">
-                    <h1 className="title">{planet.Name}</h1>
-                    <p className="description">{planet.SpecialFact}</p>
-                  </div>
-                </Link>
-              </div>
-            ))}
+          {/* {planets !== null &&} */}
+          {console.log("planets:", planets)}
+          {planets.map((planet, index) => (
+            <div className={"card card" + (index + 1)} key={planet._id}>
+              <Link to={`/planets/${planet._id}`}>
+                <img src={planet.image} alt={planet.destination} />
+                <div className="card-titleContainer">
+                  <h1 className="title">{planet.destination}</h1>
+                  <p className="description">{planet.overview}</p>
+                </div>
+              </Link>
+            </div>
+          ))}
         </div>
       </div>
     </>
