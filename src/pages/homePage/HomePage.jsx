@@ -60,7 +60,7 @@ export default function HomePage() {
               <button className="signup">
                 <Link
                   to={
-                    "https://github.com/it-Shoeb/Celestial/blob/master/src/pages/viewPage/ViewPage.jsx"
+                    "https://github.com/it-Shoeb/Celestial/"
                   }
                   target="_blank"
                 >
